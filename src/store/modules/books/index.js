@@ -1753,6 +1753,16 @@ export default {
         stockControl(state, book) {
             const bookInIndex = state.books.findIndex(i => i.id === book.id);
             state.books[bookInIndex].stock--;
+        },
+        //上傳bookdata
+        uploadBooks(state) {
+            fetch('https://vue-bookdata-default-rtdb.asia-southeast1.firebasedatabase.app/books.json', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: { books: state.books }
+            })
         }
     }
 }
