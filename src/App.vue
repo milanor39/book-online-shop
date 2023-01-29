@@ -1,30 +1,50 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="page-container">
+    <div class="content-wrap">
+      <the-header></the-header>
+      <router-view />
+    </div>
+    <div class="footer">
+      <the-footer></the-footer>
+    </div>
+  </div>
 </template>
 
+<script>
+import TheHeader from './components/layout/TheHeader.vue';
+import TheFooter from './components/layout/TheFooter.vue'
+export default {
+  components: {
+    TheHeader,
+    TheFooter
+  },
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+:root {
+  --main-color: RGB(27, 109, 193);
 }
 
-nav {
-  padding: 30px;
+body {
+  margin: 0;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.page-container {
+  position: relative;
+  min-height: 100vh;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.content-wrap {
+  padding-bottom: 11.5rem;
+  /* Footer height */
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 9rem;
+  /* Footer height */
 }
 </style>
