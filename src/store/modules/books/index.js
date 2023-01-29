@@ -1747,22 +1747,27 @@ export default {
     actions: {
         stockControl(context, book) {
             context.commit('stockControl', book)
-        }
+        },
+        //uploadBooks(context) {
+        //    context.commit('uploadBooks')
+        //}
     },
     mutations: {
         stockControl(state, book) {
             const bookInIndex = state.books.findIndex(i => i.id === book.id);
             state.books[bookInIndex].stock--;
         },
+        /*
         //上傳bookdata
         uploadBooks(state) {
-            fetch('https://vue-bookdata-default-rtdb.asia-southeast1.firebasedatabase.app/books.json', {
+            fetch('https://vue-bookdata-default-rtdb.asia-southeast1.firebasedatabase.app/bookdata.json', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: { books: state.books }
+                body: JSON.stringify({ books: state.books })
             })
         }
+        */
     }
 }
