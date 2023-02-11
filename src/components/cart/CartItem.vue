@@ -18,7 +18,7 @@
             <p>{{ itemTotal }}</p>
         </td>
         <td class="item-layout">
-            <button class="remove" @click="remove">移除</button>
+            <button class="remove" @click.prevent="remove">移除</button>
         </td>
     </tr>
     <tbody class="mobile-cart-item-layout">
@@ -38,7 +38,7 @@
                 <p>數量： {{ qty }}</p>
             </td>
             <td>
-                <button class="remove" @click="remove">移除</button>
+                <button class="remove" @click.prevent="remove">移除</button>
             </td>
         </tr>
     </tbody>
@@ -96,6 +96,11 @@ li {
 
 .mobile-cart-item-layout {
     display: none;
+}
+
+.mobile-cart-item-layout tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .price {

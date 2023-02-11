@@ -118,8 +118,13 @@ input {
 }
 
 .submit {
-    width: 30%;
     font-size: 1.2rem;
+    background-color: var(--main-color);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
 }
 
 .button-layout {

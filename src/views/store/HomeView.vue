@@ -23,7 +23,7 @@
     <base-block>
       <template #newLit>
         <h4 class="title">文學小說</h4>
-        <router-link :to="`/literature/${getNewLit.id}`">
+        <router-link :to="`/literature/${getNewLit.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getNewLit.cover" :alt="getNewLit.name">
           </div>
@@ -32,7 +32,7 @@
       </template>
       <template #newBusiness>
         <h4 class="title">商業理財</h4>
-        <router-link :to="`/business/${getNewBusiness.id}`">
+        <router-link :to="`/business/${getNewBusiness.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getNewBusiness.cover" :alt="getNewBusiness.name">
           </div>
@@ -41,7 +41,7 @@
       </template>
       <template #newArt>
         <h4 class="title">藝術設計</h4>
-        <router-link :to="`/art/${getNewArt.id}`">
+        <router-link :to="`/art/${getNewArt.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getNewArt.cover" :alt="getNewArt.name">
           </div>
@@ -50,7 +50,7 @@
       </template>
       <template #newTravel>
         <h4 class="title">旅遊</h4>
-        <router-link :to="`/travel/${getNewTravel.id}`">
+        <router-link :to="`/travel/${getNewTravel.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getNewTravel.cover" :alt="getNewTravel.name">
           </div>
@@ -59,7 +59,7 @@
       </template>
       <template #newHumanities>
         <h4 class="title">人文社會</h4>
-        <router-link :to="`/humanities/${getNewHumanities.id}`">
+        <router-link :to="`/humanities/${getNewHumanities.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getNewHumanities.cover" :alt="getNewHumanities.name">
           </div>
@@ -68,7 +68,7 @@
       </template>
       <template #newComic>
         <h4 class="title">漫畫</h4>
-        <router-link :to="`/comic/${getNewComic.id}`">
+        <router-link :to="`/comic/${getNewComic.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getNewComic.cover" :alt="getNewComic.name">
           </div>
@@ -77,7 +77,7 @@
       </template>
       <template #hotLit>
         <h4 class="title">文學小說</h4>
-        <router-link :to="`/Literature/${getHotLit.id}`">
+        <router-link :to="`/Literature/${getHotLit.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getHotLit.cover" :alt="getHotLit.name">
           </div>
@@ -86,7 +86,7 @@
       </template>
       <template #hotBusiness>
         <h4 class="title">商業理財</h4>
-        <router-link :to="`/Business/${getHotBusiness.id}`">
+        <router-link :to="`/Business/${getHotBusiness.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getHotBusiness.cover" :alt="getHotBusiness.name">
           </div>
@@ -95,7 +95,7 @@
       </template>
       <template #hotArt>
         <h4 class="title">藝術設計</h4>
-        <router-link :to="`/Art/${getHotArt.id}`">
+        <router-link :to="`/Art/${getHotArt.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getHotArt.cover" :alt="getHotArt.name">
           </div>
@@ -104,7 +104,7 @@
       </template>
       <template #hotHumanities>
         <h4 class="title">人文社會</h4>
-        <router-link :to="`/Humanities/${getHotHumanities.id}`">
+        <router-link :to="`/Humanities/${getHotHumanities.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getHotHumanities.cover" :alt="getHotHumanities.name">
           </div>
@@ -113,7 +113,7 @@
       </template>
       <template #hotTravel>
         <h4 class="title">旅行</h4>
-        <router-link :to="`/Travel/${getHotTravel.id}`">
+        <router-link :to="`/Travel/${getHotTravel.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getHotTravel.cover" :alt="getHotTravel.name">
           </div>
@@ -122,7 +122,7 @@
       </template>
       <template #hotComic>
         <h4 class="title">漫畫</h4>
-        <router-link :to="`/Comic/${getHotComic.id}`">
+        <router-link :to="`/Comic/${getHotComic.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getHotComic.cover" :alt="getHotComic.name">
           </div>
@@ -131,7 +131,7 @@
       </template>
       <template #recommendLit>
         <h4 class="title">文學小說</h4>
-        <router-link :to="`/Literature/${getRecommendLit.id}`">
+        <router-link :to="`/Literature/${getRecommendLit.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getRecommendLit.cover" :alt="getRecommendLit.name">
           </div>
@@ -140,7 +140,7 @@
       </template>
       <template #recommendBusiness>
         <h4 class="title">商業理財</h4>
-        <router-link :to="`/Business/${getRecommendBusiness.id}`">
+        <router-link :to="`/Business/${getRecommendBusiness.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getRecommendBusiness.cover" :alt="getRecommendBusiness.name">
           </div>
@@ -149,7 +149,7 @@
       </template>
       <template #recommendArt>
         <h4 class="title">藝術設計</h4>
-        <router-link :to="`/Art/${getRecommendArt.id}`">
+        <router-link :to="`/Art/${getRecommendArt.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getRecommendArt.cover" :alt="getRecommendArt.name">
           </div>
@@ -158,7 +158,7 @@
       </template>
       <template #recommendHumanities>
         <h4 class="title">人文社會</h4>
-        <router-link :to="`/Humanities/${getRecommendHumanities.id}`">
+        <router-link :to="`/Humanities/${getRecommendHumanities.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getRecommendHumanities.cover" :alt="getRecommendHumanities.name">
           </div>
@@ -167,7 +167,7 @@
       </template>
       <template #recommendTravel>
         <h4 class="title">旅行</h4>
-        <router-link :to="`/Travel/${getRecommendTravel.id}`">
+        <router-link :to="`/Travel/${getRecommendTravel.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getRecommendTravel.cover" :alt="getRecommendTravel.name">
           </div>
@@ -176,7 +176,7 @@
       </template>
       <template #recommendComic>
         <h4 class="title">漫畫</h4>
-        <router-link :to="`/Comic/${getRecommendComic.id}`">
+        <router-link :to="`/Comic/${getRecommendComic.id}`" @click="scrollToTop">
           <div class="img-box">
             <img :src="getRecommendComic.cover" :alt="getRecommendComic.name">
           </div>
@@ -197,6 +197,12 @@ export default {
       eventImg3: 'https://pakutaso.cdn.rabify.me/shared/img/thumb/PA151026263510.jpg.webp?d=1420',
       eventImg4: 'https://pakutaso.cdn.rabify.me/shared/img/thumb/kinemaPAR513592317.jpg.webp?d=1420',
       eventImg5: 'https://pakutaso.cdn.rabify.me/shared/img/thumb/JYUN923_3.jpg.webp?d=1420'
+    }
+  },
+  methods: {
+    //回到畫面頂端
+    scrollToTop() {
+      window.scrollTo(0, 0);
     }
   },
   components: {

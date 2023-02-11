@@ -1,18 +1,18 @@
 <template>
     <table class="pc-list">
-        <td>
+        <td class="style">
             <p>{{ orderId }}</p>
         </td>
         <td>
             <ul class="product-detail">
                 <li v-for="bk in product" :key="bk.bookId">
                     <p>{{ bk.name }}</p>
-                    <p>*{{ bk.qty }}</p>
+                    <p>{{ bk.qty }}本</p>
                 </li>
             </ul>
         </td>
-        <td>
-            <p>{{ total }}</p>
+        <td class="style">
+            NT$ <span class="price">{{ total }}</span>
         </td>
     </table>
     <table class="mobile-list">
@@ -35,7 +35,7 @@
         <tbody>
             <tr>
                 <td class="title">總金額</td>
-                <td class="content">{{ total }}</td>
+                <td class="content">NT$ <span class="price">{{ total }}</span></td>
             </tr>
         </tbody>
     </table>
@@ -55,7 +55,7 @@ export default {
 
 .product-detail li {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
 }
 
 .mobile-list {
@@ -63,6 +63,7 @@ export default {
     background-color: whitesmoke;
     margin: 10px 0;
     table-layout: fixed;
+    padding: 10px;
 }
 
 .mobile-list td:nth-child(1) {
@@ -86,10 +87,23 @@ export default {
     background-color: whitesmoke;
     margin: 10px 0;
     width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.pc-list .style {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .pc-list p {
     text-align: center;
+}
+
+.price {
+    color: red;
+    font-weight: bolder;
 }
 
 @media (max-width: 767px) {

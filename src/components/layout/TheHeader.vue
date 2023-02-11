@@ -52,34 +52,22 @@
             <h3 class="mobile-menu-title">書籍分類</h3>
             <ul>
                 <li>
-                    <router-link to="/literature" @click="toggleMobileMenu">
-                        <p>文學小說</p>
-                    </router-link>
+                    <router-link to="/literature" @click="toggleMobileMenu">文學小說</router-link>
                 </li>
                 <li>
-                    <router-link to="/business" @click="toggleMobileMenu">
-                        <p>商業理財</p>
-                    </router-link>
+                    <router-link to="/business" @click="toggleMobileMenu">商業理財</router-link>
                 </li>
                 <li>
-                    <router-link to="/art" @click="toggleMobileMenu">
-                        <p>藝術設計</p>
-                    </router-link>
+                    <router-link to="/art" @click="toggleMobileMenu">藝術設計</router-link>
                 </li>
                 <li>
-                    <router-link to="/humanities" @click="toggleMobileMenu">
-                        <p>人文社會</p>
-                    </router-link>
+                    <router-link to="/humanities" @click="toggleMobileMenu">人文社會</router-link>
                 </li>
                 <li>
-                    <router-link to="/travel" @click="toggleMobileMenu">
-                        <p>旅遊</p>
-                    </router-link>
+                    <router-link to="/travel" @click="toggleMobileMenu">旅遊</router-link>
                 </li>
                 <li>
-                    <router-link to="/comic" @click="toggleMobileMenu">
-                        <p>漫畫</p>
-                    </router-link>
+                    <router-link to="/comic" @click="toggleMobileMenu">漫畫</router-link>
                 </li>
             </ul>
         </base-card>
@@ -120,6 +108,7 @@ export default {
     methods: {
         toHome() {
             this.showMobileMenu = false;
+            window.scrollTo(0, 0);
         },
         toggleMobileMenu() {
             this.showMobileMenu = !this.showMobileMenu;
@@ -127,7 +116,7 @@ export default {
         logout() {
             this.$router.replace('/loggedout')
             return this.$store.dispatch('logout')
-        },
+        }
     },
     computed: {
         //會員中心：登入-會員中心，非登入-登入畫面
@@ -277,15 +266,18 @@ ul li :hover {
 .mobile-menu ul {
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 .mobile-menu li {
     text-align: center;
 }
 
-.mobile-menu p {
+.mobile-menu a {
     font-size: 1.5rem;
+    color: black;
 }
+
 
 .mobile-menu-title {
     text-align: center;
@@ -326,7 +318,7 @@ ul li :hover {
     line-height: 20px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     header {
         position: sticky;
         top: 0;

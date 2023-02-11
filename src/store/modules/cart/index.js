@@ -16,6 +16,10 @@ export default {
         },
         sendOrder(context) {
             context.commit('sendOrder')
+        },
+        //從願望清單移至購物車
+        wishlistToCart(context, payload) {
+            context.commit('wishlistToCart', payload)
         }
     },
     mutations: {
@@ -51,6 +55,25 @@ export default {
             state.items = [];
             state.total = 0;
             state.qty = 0
+        },
+        //從願望清單移至購物車
+        wishlistToCart(state, payload) {
+            const bookId = payload.id;
+            const bookInCartIndex = state.items.findIndex(item => item.id === bookId);
+            if (bookInCartIndex >= 0) {
+                state.items[bookInCartIndex].qty++;
+            } else {
+                const newItem = {
+                    bookId: payload.id,
+                    name: payload.name,
+                    cover: payload.cover,
+                    price: payload.price,
+                    qty: 1
+                };
+                state.items.push(newItem);
+            }
+            state.qty++;
+            state.total += payload.price;
         }
     },
     getters: {

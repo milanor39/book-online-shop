@@ -5,16 +5,17 @@
         <div class="content-layout">
             <ul class="feature-list">
                 <li :class="{ 'active': nowArea === 'editProfile' }">
-                    <a href="#" @click="editProfile">會員資料</a>
+                    <a href="#" @click.prevent="editProfile">會員資料</a>
                 </li>
                 <li :class="{ 'active': nowArea === 'checkOrder' }">
-                    <a href="#" @click="checkOrder">訂單紀錄</a>
+                    <a href="#" @click.prevent="checkOrder">訂單紀錄</a>
                 </li>
                 <li :class="{ 'active': nowArea === 'checkWishlist' }">
-                    <a href="#" @click="checkWishlist">願望清單</a>
+                    <a href="#" @click.prevent="checkWishlist">願望清單</a>
                 </li>
             </ul>
             <div class="area">
+                <!--會員資料-->
                 <div v-if="nowArea === 'editProfile'">
                     <h3><i class="fa-solid fa-user"></i>{{ getOwnerData.owner }}</h3>
                     <h4>編輯會員資料</h4>
@@ -53,6 +54,7 @@
                         </div>
                     </form>
                 </div>
+                <!--訂單紀錄-->
                 <div v-else-if="nowArea === 'checkOrder'">
                     <h3>訂單紀錄</h3>
                     <table class="order-table" v-if="orders">
@@ -78,7 +80,7 @@
                 </div>
                 <div v-else-if="nowArea === 'checkWishlist'">
                     <h3>願望清單</h3>
-                    <table v-if="favorites">
+                    <table class="pc-wishlist" v-if="favorites">
                         <tr class="favorites-item-layout">
                             <td>
                                 <h4>商品明細</h4>
@@ -89,10 +91,17 @@
                             <td>
                                 <h4>庫存</h4>
                             </td>
+                            <td>
+                                <h4>操作</h4>
+                            </td>
                         </tr>
                         <favorites-item v-for="fav in favorites" :key="fav.id" :id="fav.id" :eng-type="fav.engType"
                             :name="fav.name" :cover="fav.cover" :price="fav.price" :stock="fav.stock"></favorites-item>
                     </table>
+                    <div class="mobile-wishlist" v-if="favorites">
+                        <favorites-item v-for="fav in favorites" :key="fav.id" :id="fav.id" :eng-type="fav.engType"
+                            :name="fav.name" :cover="fav.cover" :price="fav.price" :stock="fav.stock"></favorites-item>
+                    </div>
                     <p v-else>沒有資料</p>
                 </div>
             </div>
@@ -240,7 +249,7 @@ table {
 
 .favorites-item-layout {
     display: grid;
-    grid-template-columns: 60% 20% 20%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-bottom: 20px;
 }
 
@@ -255,7 +264,12 @@ td {
 }
 
 .form-button-layout button {
-    margin: 0 10px;
+    background-color: var(--main-color);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
 }
 
 .mobile-order {
@@ -273,6 +287,10 @@ td {
 }
 
 .mobile-order-table {
+    display: none;
+}
+
+.mobile-wishlist {
     display: none;
 }
 
@@ -299,6 +317,14 @@ td {
 
     .mobile-order-table {
         display: block;
+    }
+
+    .mobile-wishlist {
+        display: block;
+    }
+
+    .pc-wishlist {
+        display: none;
     }
 }
 </style>

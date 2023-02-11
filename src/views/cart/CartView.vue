@@ -36,7 +36,9 @@
                     </p>
                 </td>
             </table>
-            <button type="submit">結帳</button>
+            <table class="button-layout">
+                <button class="sendorder" type="submit">結帳</button>
+            </table>
         </form>
         <div v-else>
             <h2>購物車還沒有任何商品</h2>
@@ -103,6 +105,22 @@ table {
 
 .mobile-cart {
     display: none;
+}
+
+.sendorder {
+    background-color: var(--main-color);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    font-size: 1.2rem;
+}
+
+
+.button-layout {
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width: 767px) {

@@ -90,7 +90,6 @@ export default createStore({
         state.isLoggedIn = true
         state.currentUser = account
       } else {
-        console.log(account)
         state.isPasswordValid = true;
       }
     },
@@ -103,7 +102,7 @@ export default createStore({
     sendOrder(state, cart) {
       const accInIndex = state.accounts.findIndex(acc => acc.username === state.currentUser.username);
       const newOrder = {
-        orderId: new Date().toISOString(),
+        orderId: new Date().toISOString().replace(/[^a-zA-Z0-9]/g, ""),
         product: cart.items,
         total: cart.total
       }
@@ -135,6 +134,15 @@ export default createStore({
         phone: payload.phone,
         address: payload.address
       }
+    },
+    //移除願望清單
+    removeWishlist(state, payload) {
+      const bookId = payload.id;
+      //取得帳戶
+      const accInIndex = state.accounts.findIndex(acc => acc.username === state.currentUser.username);
+      //帳戶願望清單內的書籍位置
+      const bookInWishlistIndex = state.accounts[accInIndex].favorites.findIndex(item => item.id === bookId);
+      state.accounts[accInIndex].favorites.splice(bookInWishlistIndex, 1);
     }
   },
   actions: {
@@ -155,6 +163,10 @@ export default createStore({
     },
     saveProfileChange(context, payload) {
       context.commit('saveProfileChange', payload);
+    },
+    //移除願望清單
+    removeWishlist(context, payload) {
+      context.commit('removeWishlist', payload);
     }
   },
   modules: {

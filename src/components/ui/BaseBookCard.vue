@@ -47,7 +47,6 @@
 
 /*封面 */
 .img-box {
-    width: 100%;
     display: flex;
     align-items: center;
 }

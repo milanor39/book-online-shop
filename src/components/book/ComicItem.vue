@@ -1,13 +1,13 @@
 <template>
     <li>
         <div class="book-content">
-            <router-link :to="bookDetail">
+            <router-link :to="bookDetail" @click="scrollToTop">
                 <div class="img-box">
                     <img :src="cover" :alt="name" :title="name">
                 </div>
             </router-link>
             <div class="book-detail">
-                <router-link :to="bookDetail">
+                <router-link :to="bookDetail" @click="scrollToTop">
                     <h4 :title="name">{{ name }}</h4>
                 </router-link>
                 <p>作者：{{ author }}</p>
@@ -23,6 +23,12 @@ export default {
     computed: {
         bookDetail() {
             return '/art/' + this.id
+        }
+    },
+    methods: {
+        //回到畫面頂端
+        scrollToTop() {
+            window.scrollTo(0, 0);
         }
     }
 }
