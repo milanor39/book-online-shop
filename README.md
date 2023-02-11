@@ -1,5 +1,7 @@
 # bookonlineshop
 
+1個線上日文書購物網站，
+
 ## Project setup
 ```
 npm install
